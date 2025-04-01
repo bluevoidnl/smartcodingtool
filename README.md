@@ -1,0 +1,1 @@
+# generaight kata
