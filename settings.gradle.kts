@@ -1,1 +1,1 @@
-rootProject.name = "generaight"
+rootProject.name = "smartcodingtool"

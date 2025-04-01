@@ -1,1 +1,1 @@
-# generaight tech debt
+# smartcodingtool tech debt
