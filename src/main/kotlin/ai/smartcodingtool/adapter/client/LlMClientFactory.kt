@@ -1,12 +1,13 @@
 package ai.smartcodingtool.adapter.client
 
-import ai.smartcodingtool.adapter.client.chatgpt.ChatGPTClient
+import ai.smartcodingtool.adapter.client.openai.OpenAiClient
 
 object LlMClientFactory {
 
-    fun getClient(client: LlmClient): LlmClientInterface {
+    fun getClient(client: BaseLlm): LlmClientInterface {
         return when (client) {
-            LlmClient.ChatGPT -> ChatGPTClient()
+           is OpenAiLlm -> OpenAiClient()
+            else -> throw UnsupportedOperationException()
         }
     }
 }

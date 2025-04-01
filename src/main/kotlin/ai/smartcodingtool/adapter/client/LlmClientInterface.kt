@@ -1,9 +1,9 @@
 package ai.smartcodingtool.adapter.client
 
-import ai.smartcodingtool.domain.LLMDirective
+import ai.smartcodingtool.domain.InputFile
+import ai.smartcodingtool.domain.LlmDirective
 import ai.smartcodingtool.domain.OutputFile
-import java.io.File
 
 interface LlmClientInterface {
-    suspend fun generate(inputFiles: List<File>, directives: LLMDirective): List<OutputFile>
+    suspend fun generate(inputFiles: List<InputFile>, directives: LlmDirective): List<OutputFile>
 }

@@ -9,6 +9,7 @@ Acceptance test for POC:
 # Tasks
 - create LLM interface with factory
 - Implement ChatGPT client
+- create secret for api token
 - Select files as input
 - Create directive / system prompt
 - Define output file
