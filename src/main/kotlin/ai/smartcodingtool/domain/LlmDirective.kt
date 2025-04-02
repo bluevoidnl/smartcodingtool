@@ -11,5 +11,7 @@ data class LlmDirective(
     fun getSystemPrompt(): String {
          // aspects
         // what to generate
+
+        return ""
     }
 }

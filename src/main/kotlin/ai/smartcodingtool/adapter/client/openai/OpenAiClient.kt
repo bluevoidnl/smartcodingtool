@@ -2,6 +2,7 @@ package ai.smartcodingtool.adapter.client.openai
 
 import ai.smartcodingtool.adapter.client.LlmClientException
 import ai.smartcodingtool.adapter.client.LlmClientInterface
+import ai.smartcodingtool.config.EnvConfig
 import ai.smartcodingtool.domain.InputFile
 import ai.smartcodingtool.domain.LlmDirective
 import ai.smartcodingtool.domain.OutputFile
@@ -16,10 +17,10 @@ import kotlin.time.Duration.Companion.seconds
 
 class OpenAiClient : LlmClientInterface {
 
-    private val apiKey =""
+    private val envConfig = EnvConfig
 
     private val config = OpenAIConfig(
-        token = apiKey,
+        token = envConfig.openAiApiKey,
         timeout = Timeout(socket = 60.seconds),
     )
 
