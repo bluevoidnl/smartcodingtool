@@ -4,7 +4,7 @@ import ai.smartcodingtool.adapter.client.BaseLlm
 
 data class LlmDirective(
     val model: BaseLlm,
-   // val userPrompt: String,
+    val userPrompt: String,
     val outputCodeLanguage: String
 ) {
 
@@ -12,6 +12,6 @@ data class LlmDirective(
          // aspects
         // what to generate
 
-        return ""
+        return "$userPrompt Output must be in $outputCodeLanguage"
     }
 }

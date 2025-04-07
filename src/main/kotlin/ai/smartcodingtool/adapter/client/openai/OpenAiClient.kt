@@ -26,18 +26,21 @@ class OpenAiClient : LlmClientInterface {
 
     private val openAi = OpenAI(config)
 
-    override suspend fun generate(inputFiles: List<InputFile>, directives: LlmDirective): List<OutputFile> {
+    override suspend fun generate(inputFiles: List<InputFile>, directive: LlmDirective): List<OutputFile> {
 
         val prompt = inputFiles.joinToString(separator = "\n\n") {
             "Filename: " + it.name + "\nFileContent: " + it.content
         }
 
+        val systemPrompt = directive.getSystemPrompt()
+        println(">> System prompt: $systemPrompt")
         val chatCompletionRequest = chatCompletionRequest {
-            model = ModelId(directives.model.name)
+            model = ModelId(directive.model.modelInfo.modelId)
             messages = listOf(
                 ChatMessage(
                     role = ChatRole.System,
-                    content = "You are a helpful assistant that can generate code based on tests, that must compile correctly "//directives.getSystemPrompt()
+                    // content = "You are a helpful assistant that can generate code based on tests, that must compile correctly "//
+                    content = systemPrompt
                 ),
                 ChatMessage(role = ChatRole.User, content = prompt),
             )

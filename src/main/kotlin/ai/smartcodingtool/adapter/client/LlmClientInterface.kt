@@ -5,5 +5,5 @@ import ai.smartcodingtool.domain.LlmDirective
 import ai.smartcodingtool.domain.OutputFile
 
 interface LlmClientInterface {
-    suspend fun generate(inputFiles: List<InputFile>, directives: LlmDirective): List<OutputFile>
+    suspend fun generate(inputFiles: List<InputFile>, directive: LlmDirective): List<OutputFile>
 }
